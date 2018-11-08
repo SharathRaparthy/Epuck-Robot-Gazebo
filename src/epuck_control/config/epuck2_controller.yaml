@@ -1,0 +1,21 @@
+epuck2_controller:
+   type: "robot_mechanism_controllers/JointTrajectoryActionController"
+   joints:
+     - left_joint
+     - right_joint
+   gains:
+    joint: right_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+    joint: left_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+    joint_trajectory_action_node:
+     joints:
+        - left_joint
+        - right_joint
+     constraints:
+       goal_time: 0.6
+       left_joint:
+         goal: 0.02
+       right_joint:
+         goal: 0.02
+      

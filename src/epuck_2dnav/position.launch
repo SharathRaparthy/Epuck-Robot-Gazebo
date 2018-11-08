@@ -1,0 +1,5 @@
+<launch>
+<node pkg="laser_scan" type="location_monitor" name="location_monitor" output="screen">
+    <param name="location_monitor" textfile="$(find laser_scan)/src/location_monitor.cpp" />
+</node>
+</launch>

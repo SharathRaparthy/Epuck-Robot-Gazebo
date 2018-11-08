@@ -1,0 +1,43 @@
+<robot
+  name="my_world4">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.0928935739311631 -0.00909278928894704 0.0901354157615714"
+        rpy="0 0 0" />
+      <mass
+        value="3.25" />
+      <inertia
+        ixx="0.0602604166666666"
+        ixy="4.5826334625169E-17"
+        ixz="2.16840434497101E-18"
+        iyy="0.0602604166666667"
+        iyz="2.8767497643282E-18"
+        izz="0.115104166666667" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://world_description/meshes/base_link1.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://world_description/meshes/base_link1.stl" />
+      </geometry>
+    </collision>
+  </link>
+</robot>

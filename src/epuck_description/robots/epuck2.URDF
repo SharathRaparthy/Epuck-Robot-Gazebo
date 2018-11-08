@@ -1,0 +1,302 @@
+<?xml version = "1.0" ?>
+<robot
+  name="epuck2">
+<link name="base_link"/>
+
+  <joint name= "base_link_to_main_body" type = "fixed">
+   <parent link = "base_link"/>
+   <child link = "main_body"/>
+  </joint>
+
+
+  <link
+    name="main_body">
+    <inertial>
+      <origin
+        xyz="9.0274E-05 -0.00041659 0.019845"
+        rpy="0 0 0" />
+      <mass
+        value="0.063515" />
+      <inertia
+        ixx="3.2227E-05"
+        ixy="-2.691E-07"
+        ixz="4.7122E-08"
+        iyy="2.4227E-05"
+        iyz="-1.2861E-06"
+        izz="3.3868E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://epuck2_description/meshes/main_body.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://epuck2_description/meshes/main_body.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="left_wheel">
+    <inertial>
+      <origin
+        xyz="-0.00048709 -3.5245E-18 2.4286E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.0040981" />
+      <inertia
+        ixx="8.267E-07"
+        ixy="-9.8761E-23"
+        ixz="-8.6429E-13"
+        iyy="4.304E-07"
+        iyz="-2.3376E-22"
+        izz="4.304E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://epuck2_description/meshes/left_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://epuck2_description/meshes/left_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_joint"
+    type="continuous">
+    <origin
+      xyz="0.0278 0 0.02"
+      rpy="0 0 0" />
+    <parent
+      link="main_body" />
+    <child
+      link="left_wheel" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      effort="0.001"
+      velocity="10" />
+  </joint>
+  <link
+    name="right_wheel">
+
+    <inertial>
+      <origin
+        xyz="0.00065056 4.0415E-18 7.2858E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.0038059" />
+      <inertia
+        ixx="8.2274E-07"
+        ixy="-1.0753E-22"
+        ixz="8.6429E-13"
+        iyy="4.2585E-07"
+        iyz="2.3307E-22"
+        izz="4.2585E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://epuck2_description/meshes/right_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://epuck2_description/meshes/right_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+ <joint name="base_laser_joint" type="fixed">
+    <axis xyz="0 0 1" />
+    <origin xyz="0 0 0.05596" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="base_laser"/>
+  </joint>
+
+  <!-- Hokuyo Laser -->
+  <link name="base_laser">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+    <box size="0.00001 0.00001 0.00001"/>
+      </geometry>
+    </collision>
+
+    <inertial>
+      <mass value="1e-5" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+
+  <joint
+    name="right_joint"
+    type="continuous">
+    <origin
+      xyz="-0.0278 0 0.02"
+      rpy="0 0 0" />
+    <parent
+      link="main_body" />
+    <child
+      link="right_wheel" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      effort="0.001"
+      velocity="10" />
+  </joint>
+<gazebo reference="right_wheel">
+    <selfCollide>true</selfCollide>
+    <mu1>10</mu1>
+    <mu2>10</mu2>
+</gazebo>
+
+<gazebo reference="left_wheel">
+    <selfCollide>true</selfCollide>
+    <mu1>10</mu1>
+    <mu2>10</mu2>
+</gazebo>
+<gazebo>
+  <plugin name="p3d_base_controller" filename="libgazebo_ros_p3d.so">
+    <alwaysOn>true</alwaysOn>
+    <updateRate>100.0</updateRate>
+    <bodyName>base_link</bodyName>
+    <topicName>position</topicName>
+    <gaussianNoise>0</gaussianNoise>
+    <frameName>map</frameName>
+    <xyzOffsets>0 0 0</xyzOffsets> 
+    <rpyOffsets>0 0 0</rpyOffsets>
+    <interface:position name="p3d_base_position"/>
+  </plugin>
+</gazebo>
+ <!-- hokuyo -->
+  <gazebo reference="base_laser">
+    <sensor type="ray" name="hokuyo_laser">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>true</visualize>
+      <update_rate>100.0</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>5</samples>
+            <resolution>1</resolution>
+            <min_angle>0</min_angle>
+            <max_angle>3.14</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.01</min>
+          <max>0.1</max>
+          <resolution>1</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <!-- Noise parameters based on published spec for Hokuyo laser
+               achieving "+-30mm" accuracy at range < 10m.  A mean of 0.0m and
+               stddev of 0.01m will put 99.7% of samples within 0.03m of the true
+               reading. -->
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+      <plugin name="hokuyo_node" filename="libgazebo_ros_laser.so">
+        <topicName>/scan</topicName>
+        <frameName>base_laser</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
+<gazebo>
+  <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+    <alwaysOn>true</alwaysOn>
+    <updateRate>100</updateRate>
+    <leftJoint>left_joint</leftJoint>
+    <rightJoint>right_joint</rightJoint>
+    <wheelSeparation>0.05398</wheelSeparation>
+    <wheelDiameter>0.040</wheelDiameter>
+    <torque>2</torque>
+    <commandTopic>epuck2/cmd_vel</commandTopic>
+    <odometryTopic>epuck2/odom_diffdrive</odometryTopic>
+    <odometryFrame>odom</odometryFrame>
+    <publishWheelTF>true</publishWheelTF>
+    <wheelAcceleration>0</wheelAcceleration>
+    <wheelTorque>0.0020</wheelTorque>
+    <publishTf>1</publishTf>
+    <odometrySource>1</odometrySource>
+    <publishWheelJointState>true</publishWheelJointState>
+    <robotMainFrame>footprint</robotMainFrame>
+    <robotBaseFrame>base_link</robotBaseFrame>
+  </plugin>
+</gazebo>
+
+
+<transmission name ="right_motor_t">
+ <type>transmission_interface/SimpleTransmission</type>
+ <joint name="right_joint">
+ <hardwareInterface>EffortJointInterface</hardwareInterface>
+ </joint>
+ <actuator name="right_motor_m">
+ <hardwareInterface>EffortJointInterface</hardwareInterface>
+ <mechanicalReduction>50</mechanicalReduction>
+ </actuator>
+</transmission>
+
+<transmission name ="left_motor_t">
+ <type>transmission_interface/SimpleTransmission</type>
+ <joint name="left_joint">
+ <hardwareInterface>EffortJointInterface</hardwareInterface>
+ </joint>
+ <actuator name="left_motor_m">
+ <hardwareInterface>EffortJointInterface</hardwareInterface>
+ <mechanicalReduction>50</mechanicalReduction>
+ </actuator>
+</transmission>
+
+<gazebo>
+  <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+   <robotNamespace>/epuck2</robotNamespace>
+   <alwaysOn>true</alwaysOn>
+   <updateRate>1000.0</updateRate>
+  </plugin>
+</gazebo>
+</robot>
+

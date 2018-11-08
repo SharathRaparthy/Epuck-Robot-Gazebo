@@ -1,0 +1,25 @@
+<launch>
+   <param name="robot_description" textfile="$(find epuck2_description)/robots/epuck2.URDF" />  
+
+ <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="worlds/empty.world"/>
+    <arg name="paused" value="false"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+
+
+  </include>
+
+ <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-file $(find epuck2_description)/robots/epuck2.URDF -urdf -model epuck2 -z 0" />
+
+
+<include file="$(find epuck2_control)/launch/epuck2_control.launch"/>
+
+<include>
+ <param name="robot_description" textfile="$(find world_description)/robots/world.urdf" /> 
+
+ <node name="spawn_world" pkg="gazebo_ros" type="spawn_model" args="-file $(find world_description)/robots/world.urdf -urdf -model world -z 0" />
+
+
+</launch>
+

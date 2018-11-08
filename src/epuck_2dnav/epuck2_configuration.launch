@@ -1,0 +1,9 @@
+<launch>
+  <node pkg="laser_scan" type="laser_scan_publisher" name="laser_scan_publisher" output="screen">
+    <param name="tf_listener" textfile="$(find laser_scan)/src/laser_scan_publisher.cpp" />
+</node>
+<node pkg="laser_scan" type="laser_scan_subscriber" name="laser_scan_subscriber" output="screen">
+    <param name="tf_listener" textfile="$(find laser_scan)/src/laser_scan_subscriber.cpp" />
+</node>
+</launch>
+

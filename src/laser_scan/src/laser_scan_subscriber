@@ -1,0 +1,12 @@
+#include <ros/ros.h>
+#include <sensor_msgs/LaserScan.h>
+ros::NodeHandle nh;
+ros::Subscriber scanSub;
+
+scanSub=nh.subscribe<sensor_msgs::LaserScan>("scan",50,&AutoExp::processLaserScan,this);
+void AutoExp::processLaserScan(const sensor_msgs::LaserScan::ConstPtr& scan)
+{
+     //scan->ranges[] are laser readings
+     
+}
+

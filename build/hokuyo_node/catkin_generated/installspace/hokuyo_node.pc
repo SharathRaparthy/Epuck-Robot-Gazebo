@@ -1,0 +1,8 @@
+prefix=/home/dance/Epuck-Robot-Gazebo/install
+
+Name: hokuyo_node
+Description: Description of hokuyo_node
+Version: 1.7.8
+Cflags: -I/home/dance/Epuck-Robot-Gazebo/install/include
+Libs: -L/home/dance/Epuck-Robot-Gazebo/install/lib -llibhokuyo
+Requires: rosconsole

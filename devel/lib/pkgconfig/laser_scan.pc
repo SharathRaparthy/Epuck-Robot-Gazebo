@@ -1,0 +1,8 @@
+prefix=/home/dance/Epuck-Robot-Gazebo/devel
+
+Name: laser_scan
+Description: Description of laser_scan
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/dance/Epuck-Robot-Gazebo/devel/lib 
+Requires: 

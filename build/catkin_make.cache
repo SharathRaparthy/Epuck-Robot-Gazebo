@@ -1,0 +1,2 @@
+epuck_2dnav:epuck_control:epuck_description:epuck_gazebo:hokuyo_node:laser_scan:world_description
+-DCATKIN_DEVEL_PREFIX=/home/dance/Epuck-Robot-Gazebo/devel -DCMAKE_INSTALL_PREFIX=/home/dance/Epuck-Robot-Gazebo/install -G Unix Makefiles
