@@ -23,70 +23,75 @@ Gazebo7
 
 Follow these steps to install all packages and dependencies
 #### ROS Kinetic Installation
-Configure your Ubuntu repositories
+* Configure your Ubuntu repositories
 ```
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 ```
+* Set up your keys
+```
+sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116
+```
+* Installation
+```
+sudo apt-get update
+sudo apt-get install ros-kinetic-desktop-full
+```
+* Initialize rosdep
+```
+sudo rosdep init
+rosdep update
+```
+* Environment setup
+```
+echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
+source ~/.bashrc
+source /opt/ros/kinetic/setup.bash
+```
+* Dependencies
+```
+sudo apt-get install python-rosinstall python-rosinstall-generator python-wstool build-essential
+```
 
-And repeat
+
+#### Gazebo Installation
+* Setup your computer to accept software from packages.osrfoundation.org.
+```
+sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'```
 
 ```
-until finished
+* Setup keys
 ```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
+wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
+```
+* Install Gazebo and gazebo_ros_pkgs
 
 ```
-Give an example
+sudo apt-get update
+sudo apt-get install libgazebo7-dev
+sudo apt-get install gazebo7
 ```
-
-### And coding style tests
-
-Explain what these tests test and why
-
+* Installing gazebo_ros_pkgs
 ```
-Give an example
+sudo apt-get install ros-kinetic-gazebo-ros-pkgs ros-kinetic-gazebo-ros-control
 ```
 
 ## Deployment
+Once the installation is done, you are good to go ahead. Go to Epuck-Robot-Gazebo directory by using following command.
+```
+cd Epuck-Robot-Gazebo
+```
+Build the code in catkin using catkin_make command. (You should always call catkin_make in the root of your catkin workspace)
+```
+catkin_make
+```
+Please install the missing dependencies if you are getting dependency errors while building
 
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
-## Authors
-
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
+Assuming that the catkin_make is successful without any errors, the final step is to launch the gazebo simulator using the following commands.
+```
+source devel/setup.bash
+roslaunch epuck_gazebo epuck2.launch
+```
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
 
