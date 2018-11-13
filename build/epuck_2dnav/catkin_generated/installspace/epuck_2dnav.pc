@@ -1,8 +1,0 @@
-prefix=/home/dance/Epuck-Robot-Gazebo/install
-
-Name: epuck_2dnav
-Description: Description of epuck_2dnav
-Version: 0.0.0
-Cflags: 
-Libs: -L/home/dance/Epuck-Robot-Gazebo/install/lib 
-Requires: 

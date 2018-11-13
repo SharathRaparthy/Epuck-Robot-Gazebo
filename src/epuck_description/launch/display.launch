@@ -6,7 +6,7 @@
     default="true" />
   <param
     name="robot_description"
-    textfile="$(find epuck2_description)/robots/epuck2.URDF" />
+    textfile="$(find epuck_description)/robots/epuck2.URDF" />
   <param
     name="use_gui"
     value="$(arg gui)" />

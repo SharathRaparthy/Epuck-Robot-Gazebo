@@ -1,8 +1,0 @@
-prefix=/home/dance/Epuck-Robot-Gazebo/install
-
-Name: epuck_gazebo
-Description: Description of epuck_gazebo
-Version: 0.0.0
-Cflags: 
-Libs: -L/home/dance/Epuck-Robot-Gazebo/install/lib 
-Requires: 

@@ -31,7 +31,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://epuck2_description/meshes/main_body.STL" />
+          filename="package://epuck_description/meshes/main_body.STL" />
       </geometry>
       <material
         name="">
@@ -45,7 +45,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://epuck2_description/meshes/main_body.STL" />
+          filename="package://epuck_description/meshes/main_body.STL" />
       </geometry>
     </collision>
   </link>
@@ -71,7 +71,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://epuck2_description/meshes/left_wheel.STL" />
+          filename="package://epuck_description/meshes/left_wheel.STL" />
       </geometry>
       <material
         name="">
@@ -85,7 +85,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://epuck2_description/meshes/left_wheel.STL" />
+          filename="package://epuck_description/meshes/left_wheel.STL" />
       </geometry>
     </collision>
   </link>
@@ -128,7 +128,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://epuck2_description/meshes/right_wheel.STL" />
+          filename="package://epuck_description/meshes/right_wheel.STL" />
       </geometry>
       <material
         name="">
@@ -142,7 +142,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://epuck2_description/meshes/right_wheel.STL" />
+          filename="package://epuck_description/meshes/right_wheel.STL" />
       </geometry>
     </collision>
   </link>
@@ -248,6 +248,7 @@
 <gazebo>
   <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
     <alwaysOn>true</alwaysOn>
+    <legacyMode>false</legacyMode>
     <updateRate>100</updateRate>
     <leftJoint>left_joint</leftJoint>
     <rightJoint>right_joint</rightJoint>
@@ -272,10 +273,10 @@
 <transmission name ="right_motor_t">
  <type>transmission_interface/SimpleTransmission</type>
  <joint name="right_joint">
- <hardwareInterface>EffortJointInterface</hardwareInterface>
+ <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
  </joint>
  <actuator name="right_motor_m">
- <hardwareInterface>EffortJointInterface</hardwareInterface>
+ <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
  <mechanicalReduction>50</mechanicalReduction>
  </actuator>
 </transmission>
@@ -283,10 +284,10 @@
 <transmission name ="left_motor_t">
  <type>transmission_interface/SimpleTransmission</type>
  <joint name="left_joint">
- <hardwareInterface>EffortJointInterface</hardwareInterface>
+ <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
  </joint>
  <actuator name="left_motor_m">
- <hardwareInterface>EffortJointInterface</hardwareInterface>
+ <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
  <mechanicalReduction>50</mechanicalReduction>
  </actuator>
 </transmission>
