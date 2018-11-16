@@ -6,12 +6,6 @@ Clone the repository using the following command.
 ```
 git clone https://github.com/SharathRaparthy/Epuck-Robot-Gazebo.git
 ```
-As soon as you clone it, remove/delete the folders named devel and build using following commands
-```
-rm -r build/
-rm -r devel/
-```
-
 ### Requirements
 ```
 Ubuntu 16.04
