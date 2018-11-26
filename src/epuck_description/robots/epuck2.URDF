@@ -273,10 +273,10 @@
 <transmission name ="right_motor_t">
  <type>transmission_interface/SimpleTransmission</type>
  <joint name="right_joint">
- <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  <hardwareInterface>EffortJointInterface</hardwareInterface>
  </joint>
  <actuator name="right_motor_m">
- <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  <hardwareInterface>EffortJointInterface</hardwareInterface>
  <mechanicalReduction>50</mechanicalReduction>
  </actuator>
 </transmission>
@@ -284,10 +284,10 @@
 <transmission name ="left_motor_t">
  <type>transmission_interface/SimpleTransmission</type>
  <joint name="left_joint">
- <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  <hardwareInterface>EffortJointInterface</hardwareInterface>
  </joint>
  <actuator name="left_motor_m">
- <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  <hardwareInterface>EffortJointInterface</hardwareInterface>
  <mechanicalReduction>50</mechanicalReduction>
  </actuator>
 </transmission>
