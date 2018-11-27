@@ -44,6 +44,7 @@ source /opt/ros/kinetic/setup.bash
 * Dependencies
 ```
 sudo apt-get install python-rosinstall python-rosinstall-generator python-wstool build-essential ros-kinetic-navigation ros-kinetic-ros-control ros-kinetic-ros-controllers
+
 ```
 
 
