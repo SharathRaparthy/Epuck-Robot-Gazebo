@@ -46,7 +46,6 @@ source /opt/ros/kinetic/setup.bash
 sudo apt-get install python-rosinstall python-rosinstall-generator python-wstool build-essential
 ```
 
-
 #### Gazebo Installation
 * Setup your computer to accept software from packages.osrfoundation.org.
 ```
@@ -70,6 +69,8 @@ sudo apt-get install ros-kinetic-gazebo-ros-pkgs ros-kinetic-gazebo-ros-control 
 
 #### Set up your ROS Workspace
 
+This information is taken from the [ROS tutorials](http://wiki.ros.org/ROS/Tutorials/InstallingandConfiguringROSEnvironment).
+
 * Create a catkin workspace
 ```
 mkdir -p ~/catkin_ws/src
@@ -83,6 +84,22 @@ source devel/setup.bash
 cd ~/catkin_ws/src
 git clone https://github.com/SharathRaparthy/Epuck-Robot-Gazebo.git
 ```
+
+#### Update MATLAB's ROS Messages
+
+This information is taken from the [UNC Charlotte Machine Vision Lab Wiki Documentation](https://visionlab.uncc.edu/dokuwiki/range-only_slam_from_matlab_using_ros_and_the_gazebo_simulator)
+
+ Locate your matlab ros msg definitions jar:
+
+Windows: (usually C:\Program Files\Matlab\R2016a\java\jarext\rosjava\rosjava_messages.jar).
+
+Linux: (usually /usr/local/MATLAB/R2016a/java/jarext/rosjava/rosjava_messages.jar).
+
+Rename rosjava_messages.jar to rosjava_messages_old.jar.
+
+Download the rosjava_messages.jar file below and copy into the folder listed above as appropriate to your platform.
+
+[rosjava_messages.jar](https://visionlab.uncc.edu/dokuwiki/_media/rosjava_messages.jar) 
 
 ## Deployment
 Once the installation is done, you are good to go ahead. Go to Epuck-Robot-Gazebo directory by using following command.
