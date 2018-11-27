@@ -44,15 +44,13 @@ source /opt/ros/kinetic/setup.bash
 * Dependencies
 ```
 sudo apt-get install python-rosinstall python-rosinstall-generator python-wstool build-essential ros-kinetic-navigation ros-kinetic-ros-control ros-kinetic-ros-controllers
-
 ```
 
 
 #### Gazebo Installation
 * Setup your computer to accept software from packages.osrfoundation.org.
 ```
-sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'```
-
+sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
 ```
 * Setup keys
 ```
