@@ -43,7 +43,7 @@ source /opt/ros/kinetic/setup.bash
 ```
 * Dependencies
 ```
-sudo apt-get install python-rosinstall python-rosinstall-generator python-wstool build-essential ros-kinetic-navigation ros-kinetic-ros-control ros-kinetic-ros-controllers
+sudo apt-get install python-rosinstall python-rosinstall-generator python-wstool build-essential
 ```
 
 
@@ -65,7 +65,7 @@ sudo apt-get install gazebo7
 ```
 * Installing gazebo_ros_pkgs
 ```
-sudo apt-get install ros-kinetic-gazebo-ros-pkgs ros-kinetic-gazebo-ros-control
+sudo apt-get install ros-kinetic-gazebo-ros-pkgs ros-kinetic-gazebo-ros-control ros-kinetic-navigation ros-kinetic-ros-control ros-kinetic-ros-controllers
 ```
 
 ## Deployment
