@@ -68,10 +68,26 @@ sudo apt-get install gazebo7
 sudo apt-get install ros-kinetic-gazebo-ros-pkgs ros-kinetic-gazebo-ros-control ros-kinetic-navigation ros-kinetic-ros-control ros-kinetic-ros-controllers
 ```
 
+#### Set up your ROS Workspace
+
+* Create a catkin workspace
+```
+mkdir -p ~/catkin_ws/src
+cd ~/catkin_ws/
+catkin_make
+source devel/setup.bash
+```
+
+* Clone the Epuck-Robot-Gazebo repository
+```
+cd ~/catkin_ws/src
+git clone https://github.com/SharathRaparthy/Epuck-Robot-Gazebo.git
+```
+
 ## Deployment
 Once the installation is done, you are good to go ahead. Go to Epuck-Robot-Gazebo directory by using following command.
 ```
-cd Epuck-Robot-Gazebo
+cd ~/catkin_ws
 ```
 Build the code in catkin using catkin_make command. (You should always call catkin_make in the root of your catkin workspace)
 ```
